@@ -13,11 +13,11 @@ void setup()
 {
     Serial.begin(9600);
 
-    pinMode(53,INPUT); // giữa
-    pinMode(51,INPUT); // trái 1
-    pinMode(49,INPUT); // phả i 1
-    pinMode(47,INPUT); // trái 2 
-    pinMode(45,INPUT); // phả i 2
+    pinMode(53, INPUT); // giữa
+    pinMode(51, INPUT); // trái 1
+    pinMode(49, INPUT); // phải 1
+    pinMode(47, INPUT); // trái 2 
+    pinMode(45, INPUT); // phải 2
 }
 
 void loop()
@@ -26,9 +26,9 @@ void loop()
     int c = 150;
     boolean a = 1;
 
-    if(digitalRead(47) == 0 & digitalRead(45) == 0) // cua quẹ o phảai 
+    if(digitalRead(47) == 0 & digitalRead(45) == 0) // cua phảai 
     {
-        a=0;
+        a = 0;
     }
 
     if(a == 0)

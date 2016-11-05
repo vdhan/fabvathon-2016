@@ -26,7 +26,7 @@ void loop()
     int c = 150;
     boolean a = 1;
 
-    if(digitalRead(47) == 0 & digitalRead(45) == 0) // cua phảai 
+    if(digitalRead(47) == 0 & digitalRead(45) == 0) // cua phải
     {
         a = 0;
     }

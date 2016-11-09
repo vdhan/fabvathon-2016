@@ -1,9 +1,11 @@
 #include <AFMotor.h>
+#include <Servo.h>
 
 AF_DCMotor motor1(1); // motor 1
 AF_DCMotor motor2(2); // motor 2
 AF_DCMotor motor3(3); // motor 3
 AF_DCMotor motor4(4); // motor 4
+Servo servo;
 
 int n = 0;
 int z;
@@ -36,8 +38,9 @@ void loop()
   {
     motor3.run(RELEASE);
     motor2.run(RELEASE);
-    a = 1;
     delay(100);
+    
+    a = 1;
     n++;
   }
 
@@ -55,17 +58,9 @@ void loop()
   {
     motor2.run(RELEASE);
     motor3.run(RELEASE);
-    delay(300);
+    delay(500);
 
-    motor2.setSpeed(b);
-    motor3.setSpeed(b);
-    motor2.run(FORWARD);
-    motor3.run(FORWARD);
-    delay(100);
-
-//    motor2.run(RELEASE);
-//    motor3.run(RELEASE);
-//    delay(100);
+    n++;
   }
 
   if (n == 22)

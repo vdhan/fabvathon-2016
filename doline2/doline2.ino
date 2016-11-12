@@ -81,50 +81,22 @@ void loop()
     motor2.run(RELEASE);
     motor3.run(RELEASE);
     delay(100);
+
     motor2.run(FORWARD);
     motor3.run(FORWARD);
     delay(100);
-    /*motor2.run(FORWARD);
-    motor3.run(FORWARD);
-    delay(600);
 
-    motor2.run(FORWARD);
-    motor3.run(BACKWARD);
-    delay(500);
-
-    motor2.run(RELEASE);
-    motor3.run(RELEASE);
-    delay(100);*/
     motor2.run(BACKWARD);
     motor3.run(FORWARD);
     delay(500);
 
-    /*while (digitalRead(53) == 1)
-    {
-      motor2.run(FORWARD);
-      motor3.run(BACKWARD);
-      delay(50);
-
-      motor2.run(RELEASE);
-      motor3.run(RELEASE);
-      delay(100);
-    }
-    motor2.run(FORWARD);
-    motor3.run(FORWARD);
-    delay(100);*/
     motor2.run(RELEASE);
     motor3.run(RELEASE);
     delay(100);
+
     quangtien();
     motor2.run(RELEASE);
     motor3.run(RELEASE);
-    delay(10000);
-  }
-
-  if (n == 30)
-  {
-    motor3.run(RELEASE);
-    motor2.run(RELEASE);
     delay(10000);
   }
 
@@ -273,6 +245,7 @@ void quangtien()
 {
   servo.write(25);
   delay(200);
+
   servo.write(pos);
   delay(200);
 }

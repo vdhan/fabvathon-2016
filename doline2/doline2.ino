@@ -7,8 +7,8 @@ AF_DCMotor motor3(3); // motor 3
 AF_DCMotor motor4(4); // motor 4
 Servo servo;
 
+int pos = 140;
 int n = 0;
-int z;
 void queotrai();
 void queophai();
 void quangtien();
@@ -24,7 +24,7 @@ void setup()
   pinMode(45, INPUT); // phải 2
 
   servo.attach(10);
-  servo.write(90);
+  servo.write(pos);
 }
 
 void loop()
@@ -81,8 +81,10 @@ void loop()
     motor2.run(RELEASE);
     motor3.run(RELEASE);
     delay(100);
-
     motor2.run(FORWARD);
+    motor3.run(FORWARD);
+    delay(100);
+    /*motor2.run(FORWARD);
     motor3.run(FORWARD);
     delay(600);
 
@@ -92,9 +94,12 @@ void loop()
 
     motor2.run(RELEASE);
     motor3.run(RELEASE);
-    delay(100);
+    delay(100);*/
+    motor2.run(BACKWARD);
+    motor3.run(FORWARD);
+    delay(500);
 
-    while (digitalRead(53) == 1)
+    /*while (digitalRead(53) == 1)
     {
       motor2.run(FORWARD);
       motor3.run(BACKWARD);
@@ -106,8 +111,14 @@ void loop()
     }
     motor2.run(FORWARD);
     motor3.run(FORWARD);
+    delay(100);*/
+    motor2.run(RELEASE);
+    motor3.run(RELEASE);
     delay(100);
     quangtien();
+    motor2.run(RELEASE);
+    motor3.run(RELEASE);
+    delay(10000);
   }
 
   if (n == 30)
@@ -139,7 +150,6 @@ void loop()
     motor3.setSpeed(b); // phải
     motor2.run(FORWARD);
     motor3.run(FORWARD);
-    z = 3;
   }
 
   if (digitalRead(53) == 0 & digitalRead(51) == 1 & digitalRead(49) == 0) // lệch trái
@@ -148,7 +158,6 @@ void loop()
     motor3.setSpeed(c); // phải
     motor2.run(FORWARD);
     motor3.run(FORWARD);
-    z = 3;
   }
 
   if (digitalRead(53) == 1 & digitalRead(51) == 1 & digitalRead(49) == 0) // lệch trái
@@ -157,7 +166,6 @@ void loop()
     motor3.setSpeed(c - 30); // phải
     motor2.run(FORWARD);
     motor3.run(FORWARD);
-    z = 0;
   }
 
   if (digitalRead(53) == 1 & digitalRead(51) == 1 & digitalRead(49) == 1) // ngưng
@@ -174,7 +182,6 @@ void loop()
     motor3.setSpeed(b); // phải
     motor2.run(FORWARD);
     motor3.run(FORWARD);
-    z = 1;
   }
 
   if (digitalRead(53) == 1 & digitalRead(51) == 1 & digitalRead(49) == 1 & digitalRead(47) == 1 & digitalRead(45) == 0) // lệch trái
@@ -222,7 +229,7 @@ void queotrai()
 
     motor2.run(RELEASE);
     motor3.run(RELEASE);
-    delay(100);
+    delay(80);
 
     if (digitalRead(53) == 0)
     {
@@ -253,7 +260,7 @@ void queophai()
 
     motor2.run(RELEASE);
     motor3.run(RELEASE);
-    delay(100);
+    delay(80);
 
     if (digitalRead(53) == 0)
     {
@@ -266,7 +273,7 @@ void quangtien()
 {
   servo.write(25);
   delay(200);
-  servo.write(90);
+  servo.write(pos);
   delay(200);
 }
 

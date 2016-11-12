@@ -11,6 +11,7 @@ int n = 0;
 int z;
 void queotrai();
 void queophai();
+void quangtien();
 
 void setup()
 {
@@ -21,6 +22,9 @@ void setup()
   pinMode(49, INPUT); // phải 1
   pinMode(47, INPUT); // trái 2
   pinMode(45, INPUT); // phải 2
+
+  servo.attach(10);
+  servo.write(90);
 }
 
 void loop()
@@ -44,12 +48,12 @@ void loop()
     n++;
   }
 
-  if (n == 1 | n == 3 | n == 13 | n == 18 | n == 20 | n == 24)
+  if (n == 1 | n == 3 | n == 14 | n == 19 | n == 21 | n == 26)
   {
     queophai();
   }
 
-  if (n == 5 | n == 8 | n == 11 | n == 15)
+  if (n == 5 | n == 8 | n == 12 | n == 16)
   {
     queotrai();
   }
@@ -58,26 +62,25 @@ void loop()
   {
     motor2.run(RELEASE);
     motor3.run(RELEASE);
-    delay(500);
+    quangtien();
 
     n++;
   }
 
-  if (n == 22)
+  if (n == 23)
   {
     motor2.run(RELEASE);
     motor3.run(RELEASE);
-    delay(300);
+    quangtien();
 
-    motor2.run(FORWARD);
-    motor3.run(FORWARD);
+    n++;
   }
 
-  if (n == 26)
+  if (n == 28)
   {
     motor2.run(RELEASE);
     motor3.run(RELEASE);
-    delay(500);
+    delay(100);
 
     motor2.run(FORWARD);
     motor3.run(FORWARD);
@@ -99,16 +102,15 @@ void loop()
 
       motor2.run(RELEASE);
       motor3.run(RELEASE);
-      delay(100);
-
-      if (digitalRead(53) == 0)
-      {
-        n++;
-      }
+      delay(100);      
     }
+    motor2.run(FORWARD);
+    motor3.run(FORWARD);
+    delay(100);
+    quangtien();
   }
 
-  if (n == 28)
+  if (n == 30)
   {
     motor3.run(RELEASE);
     motor2.run(RELEASE);
@@ -216,11 +218,11 @@ void queotrai()
   {
     motor3.run(FORWARD);
     motor2.run(BACKWARD);
-    delay(80);
+    delay(50);
 
     motor2.run(RELEASE);
     motor3.run(RELEASE);
-    delay(50);
+    delay(100);
 
     if (digitalRead(53) == 0)
     {
@@ -247,11 +249,11 @@ void queophai()
   {
     motor2.run(FORWARD);
     motor3.run(BACKWARD);
-    delay(80);
+    delay(50);
 
     motor2.run(RELEASE);
     motor3.run(RELEASE);
-    delay(50);
+    delay(100);
 
     if (digitalRead(53) == 0)
     {
@@ -259,3 +261,12 @@ void queophai()
     }
   }
 }
+
+void quangtien()
+{
+  servo.write(25);
+  delay(200);
+  servo.write(90);
+  delay(200);
+}
+

@@ -43,7 +43,7 @@ void loop()
     motor3.run(RELEASE);
     motor2.run(RELEASE);
     delay(100);
-    
+
     a = 1;
     n++;
   }
@@ -88,11 +88,11 @@ void loop()
 
     motor2.run(FORWARD);
     motor3.run(BACKWARD);
-    delay(350);
+    delay(500);
 
     motor2.run(RELEASE);
     motor3.run(RELEASE);
-    delay(500);
+    delay(100);
 
     while (digitalRead(53) == 1)
     {
@@ -102,7 +102,7 @@ void loop()
 
       motor2.run(RELEASE);
       motor3.run(RELEASE);
-      delay(100);      
+      delay(100);
     }
     motor2.run(FORWARD);
     motor3.run(FORWARD);
